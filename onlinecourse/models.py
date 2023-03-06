@@ -116,8 +116,8 @@ class Enrollment(models.Model):
     #        return False
 
 class Question(models.Model):
-    lesson_id = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    question_text = models.CharField(max_length=1000, default="text")
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    text = models.CharField(max_length=1000, default="text")
     grade = models.FloatField(default=10.0)
 
     courses = models.ManyToManyField(Course)
@@ -138,8 +138,8 @@ class Question(models.Model):
     # Indicate if this choice of the question is a correct one or not
     # Other fields and methods you would like to design
 class Choice(models.Model):
-    question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=1000, default="text")
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    text = models.CharField(max_length=1000, default="text")
     is_correct = models.BooleanField(default=False)
 
 
