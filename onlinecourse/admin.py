@@ -5,11 +5,11 @@ from .models import Course, Lesson, Instructor, Learner, Choice, Question
 # <HINT> Register QuestionInline and ChoiceInline classes here
 class QuestionInline(admin.StackedInline):
     model = Question
-    extra = 5
+    extra = 2
 
 class ChoiceInline(admin.StackedInline):
     model = Choice
-    extra = 5
+    extra = 2
 
 class LessonInline(admin.StackedInline):
     model = Lesson
@@ -22,7 +22,6 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ('name', 'pub_date')
     list_filter = ['pub_date']
     search_fields = ['name', 'description']
-
 
 class LessonAdmin(admin.ModelAdmin):
     list_display = ['title']
